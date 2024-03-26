@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import BookingService from "../Service/BookingService";
 import { useNavigate } from 'react-router-dom';
-
+import homeImage from './home.jpg';
 function DisplayCylinders({cylinderarray}){
     const navigate = useNavigate();
 
     const bookCylinder=(cylinderid)=>{
+        var customer =JSON.parse(localStorage.getItem("customer")|| "{}");
         const bookcylinder = {
-            customerId: 1,
+            customerId: customer.data.id,
             cylinderId: cylinderid
         };
         console.log(bookcylinder);
@@ -88,8 +89,19 @@ function Booking() {
                 }
             )
     }
+    const navigate = useNavigate();
+    const handleHomeClick=()=>{
+        console.log("Home clicked");
+        navigate("/customer/Home");
+    }
     return(
         <>
+        <br></br>
+         <button onClick={handleHomeClick}>
+            <img src={homeImage} alt="Home" style={{width:'30px'}} />
+        </button>
+        <br></br>
+        <br></br>
             {
                 cylinders.length>0 ?<DisplayCylinders cylinderarray={cylinders}/>:<h3>No cylinders found</h3>
             }

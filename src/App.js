@@ -7,6 +7,10 @@ import Bank from './Component/Bank';
 import Footer from './Component/Footer';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import CustomerLogin from './Component/CustomerLogin';
+import CustomerHome from './Component/CustomerHome';
+import Logout from './Component/Logout';
+import Transaction from './Component/Transaction';
+import ViewProfile from './Component/ViewProfile';
 function App() {
   return (
     <>
@@ -19,6 +23,10 @@ function App() {
       <Route path='/booked/cylinders' element={<GetcustomerCylinderById/>}>Booked</Route>
       <Route path='/register' element={<Register />}></Route>
       <Route path='/login' element={<CustomerLogin />}></Route>
+      <Route path='/customer/Home' element={<CustomerHome />}></Route>
+      <Route path='/logout' element={<Logout />}></Route>
+      <Route path='/transaction' element={<Transaction />}></Route>
+      <Route path='/profile' element={<ViewProfile />}></Route>
     </Routes>
   </BrowserRouter>
   </>

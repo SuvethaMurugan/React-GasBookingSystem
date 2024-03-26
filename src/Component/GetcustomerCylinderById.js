@@ -3,10 +3,12 @@ import { useEffect, useState } from "react";
 import BookingService from "../Service/BookingService";
 import { useNavigate } from "react-router-dom";
 import PaymentService from "../Service/PaymentService";
+import homeImage from './home.jpg';
 
 function DisplayCylinders({cylinderarray}){
+    var customer =JSON.parse(localStorage.getItem("customer")|| "{}");
     let[Paymentcylinder,setPaymentCylinder] = useState({
-        customerId: 1,
+        customerId: customer.data.id,
         bookingId: 1,
         password:''
     });
@@ -40,7 +42,7 @@ function DisplayCylinders({cylinderarray}){
             (resp) => {
                 console.log(resp.data);
                 console.log("Payment successful");
-                navigate('/cylinder/available');
+                navigate("/customer/Home");
                 
             }
         )
@@ -104,7 +106,8 @@ function GetcustomerCylinderById() {
         getAllCylinders();
     },[]);
     const getAllCylinders=()=>{
-        BookingService.getcustomercylinderByid(1)
+        var customer =JSON.parse(localStorage.getItem("customer")|| "{}");
+        BookingService.getcustomercylinderByid(customer.data.id)
             .then(
                 (resp)=>{
                     console.log(resp);
@@ -122,8 +125,19 @@ function GetcustomerCylinderById() {
                 }
             )
     }
+    const navigate = useNavigate();
+    const handleHomeClick=()=>{
+        console.log("Home clicked");
+        navigate("/customer/Home");
+    }
     return(
         <>
+        <br></br>
+         <button onClick={handleHomeClick}>
+            <img src={homeImage} alt="Home" style={{width:'30px'}} />
+        </button>
+        <br></br>
+        <br></br>
             {
                 cylinders.length>0 ?<DisplayCylinders cylinderarray={cylinders}/>:<h3>No cylinders found</h3>
             }
