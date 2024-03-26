@@ -1,0 +1,42 @@
+input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+  }
+  .buttonclass{
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    background-color: #C68484;
+    color: white
+   
+  }
+  h2
+  {
+    text-align: center;
+  }
+  
+  .container {
+    background-color: #f1f1f1;
+    padding: 20px;
+    margin-top: 10%;
+    width: 40%;
+  }
+  .btn-sez:hover {
+      background-color:#9B4444;
+      border: 1px solid  #C68484;
+  
+    }
+  .btn-sez{
+      background-color: #9B4444;
+      border: 1px solid  #C68484;
+  
+    }
