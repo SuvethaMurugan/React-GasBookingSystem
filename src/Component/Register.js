@@ -1,7 +1,9 @@
 import { useState } from "react";
 import AccountService from "../Service/AccountService";
 import { useNavigate } from 'react-router-dom';
-import './Register.css'; 
+import { Col, Button, Row, Container, Card, Form } from 'react-bootstrap';
+
+// import {styles} from './Register.css'; 
 
 
 function Register() {
@@ -54,39 +56,8 @@ function Register() {
     }
     return (
         <>
-        {/* <div class={styles.container}>
-            <p className="title">Registration Form</p>
-            <div class="card">
-            <form className="align-items-center">
-                <div class="form-group">
-                UserName: <input type="text" class ={styles.formcontrol} name="userName" value={customer.userName} onChange={handleAccountChange} required></input>
-                <br></br>
-                </div>
-                <div class="form-group">
-                Email: <input type="email" class ={styles.formcontrol} name="email" value={customer.email} onChange={handleAccountChange} required></input>
-                </div>
-                <div class="form-group">
-                Password: <input type="text" class ={styles.formcontrol} name="password" value={customer.password} onChange={handleAccountChange} required></input>
-                </div>
-                <div class="form-group">
-                Mobile Number: <input type="text" class ={styles.formcontrol} name="mobileNo" value={customer.mobileNo} onChange={handleAccountChange} required></input>
-                </div>
-                <div class="form-group">
-                Door No.: <input type="text" class ={styles.formcontrol} name="doorno" value={customer.address.doorNo} onChange={handleAddressChange} required></input>
-                </div>
-                <div class="form-group">
-                Street Name: <input type="text" class ={styles.formcontrol} name="streetname" value={customer.address.streetName} onChange={handleAddressChange} required></input>
-                </div>
-                <div class="form-group">
-                City : <input type="text" class ={styles.formcontrol} name="city" value={customer.address.City} onChange={handleAddressChange} required></input>
-                </div>
-                <div class="form-group">
-                <input type={"submit"} style={{ backgroundColor: "#a1eafb" }} />
-                </div>
-            </form>
-            </div>
-            </div> */}
-            <div class="container">
+
+            {/* <div class = "container">
             <h3 class="heading" >Register</h3>
             <form class="form-control" onSubmit={handleSubmit}>
                 <p>
@@ -130,9 +101,71 @@ function Register() {
                 </p>
                 <input class="button" type={"submit"} />
             </form>
-            </div>
+            </div> */}
+     <div>
+      <Container>
+        <Row className="vh-100 d-flex justify-content-center align-items-center">
+          <Col md={14} lg={10} xs={6}>
+            <Card className="px-20">
+              <Card.Body>
+                <div className="mb-3 mt-md-4">
+                  <h2 className="fw-bold mb-2 text-center text-uppercase ">
+                    Register
+                  </h2>
+                  <div className="mb-8">
+                    <Form onSubmit={handleSubmit}>
+                      <Form.Group className="mb-3" controlId="Name">
+                        <Form.Label className="text-center">UserName</Form.Label>
+                        <Form.Control type="text" placeholder="Enter Name"  name="userName" value={customer.userName} onChange={handleAccountChange} required />
+                      </Form.Group>
+
+                      <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Label className="text-center">
+                          Email address
+                        </Form.Label>
+                        <Form.Control type="email" placeholder="Enter email" name="email" value={customer.email} onChange={handleAccountChange} required/>
+                      </Form.Group>
+
+                      <Form.Group className="mb-3" controlId="formBasicPassword">
+                        <Form.Label>Password</Form.Label>
+                        <Form.Control type="password" placeholder="Password"name="password" value={customer.password} onChange={handleAccountChange} required/>
+                      </Form.Group>
+                      <Form.Group className="mb-3" controlId="formBasicMobileNum">
+                        <Form.Label>Mobile Number</Form.Label>
+                        <Form.Control type="text" placeholder="Mobile num" name="mobileNo" value={customer.mobileNo} onChange={handleAccountChange} required />
+                      </Form.Group>
+                      <Form.Group className="mb-3" controlId="formBasicDoorNo">
+                        <Form.Label>DoorNum</Form.Label>
+                        <Form.Control type="text" placeholder="Door No" name="doorNo" value={customer.address.doorNo} onChange={handleAddressChange} required/>
+                      </Form.Group>
+                      <Form.Group className="mb-3" controlId="formBasicStreet">
+                        <Form.Label>StreetName</Form.Label>
+                        <Form.Control type="text" placeholder="Street Name" name="streetName" value={customer.address.streetName} onChange={handleAddressChange} required/>
+                      </Form.Group>
+                      <Form.Group className="mb-3" controlId="formBasicCity">
+                        <Form.Label>City</Form.Label>
+                        <Form.Control type="text" placeholder="City" name="City" value={customer.address.City} onChange={handleAddressChange} required/>
+                      </Form.Group><Form.Group className="mb-3" controlId="formBasicSpin">
+                        <Form.Label>Pin Code</Form.Label>
+                        <Form.Control type="text" placeholder="PinCode" name="pinCode" value={customer.address.pinCode} onChange={handleAddressChange} required />
+                      </Form.Group>
+                      <Form.Group className="mb-3" controlId="formBasicCheckbox"></Form.Group>
+                      <div className="d-grid">
+                        <Button variant="primary" type={"submit"} style={{ backgroundColor: '#9B4444'}}>
+                          Create Account
+                        </Button>
+                      </div>
+                    </Form>
+                  </div>
+                </div>
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
+      </Container>
+    </div>
         </>
     );
 }
 
-export default Register; 
+export default Register;

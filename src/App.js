@@ -37,6 +37,7 @@ function App() {
       <Route path='/profile' element={<ViewProfile />}></Route>
     </Routes>
   </BrowserRouter>
+  <Footer/>
   </>
   );
 }
