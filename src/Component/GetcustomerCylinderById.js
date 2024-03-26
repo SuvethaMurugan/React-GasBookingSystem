@@ -39,7 +39,8 @@ function DisplayCylinders({cylinderarray}){
         .then(
             (resp) => {
                 console.log(resp.data);
-                navigate('');
+                console.log("Payment successful");
+                navigate('/cylinder/available');
                 
             }
         )

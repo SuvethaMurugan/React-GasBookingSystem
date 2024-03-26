@@ -19,32 +19,33 @@ function CustomerLogin() {
     AccountService.loginCustomerAccount(customer)
         .then(
             (resp)=>{
-                console.log(resp.data);
-                // navigate
+              localStorage.setItem("customer",JSON.stringify(resp));
+                console.log(resp);
+                navigate("/cylinder/available")
             }
         )
         .catch(
             (err) => {
-                console.log(err.response.data);
+                console.log(err.response);
             }
         )
   }
   return (
     <>
-    <div class="container">
+    <div className="container">
             <p className="title">Registration Form</p>
-            <div class="card">
-            <form className="align-items-center" onLogin={handleLogin}>
+            <div className="card">
+            <form className="align-items-center" onSubmit={handleLogin}>
                 <p>
-                    <label for="b">User Name:</label>
-                    <input id = "b" type="text" name="email" value={customer.email} onChange={handleAccountChange}  required></input>
+                    <label forName="b">User Name:</label>
+                    <input id = "b" type="text" name="userName" value={customer.userName} onChange={handleAccountChange}  required></input>
                 </p>
                 <br></br>
                 <p>
-                    <label for="c">Password:</label>
+                    <label forName="c">Password:</label>
                     <input id = "c" type="text" name="password" value={customer.password} onChange={handleAccountChange} required></input>
                 </p>
-                <input class="button" type={"submit"} placeholder="Login" />
+                <input class="button" type={"submit"} placeholder="Login"/>
             </form>
             </div>
     </div>

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import AccountService from "../Service/AccountService";
 import { useNavigate } from 'react-router-dom';
-import styles from './Register.css'; // Import the CSS file
+import './Register.css'; 
 
 
 function Register() {
@@ -41,8 +41,7 @@ function Register() {
         AccountService.addAccount(customer)
             .then(
                 (resp) => {
-                    console.log(resp.data);
-                    localStorage.setItem("customer",JSON.stringify(resp));
+                    console.log(resp.data);  
                     navigate('/login');
                     
                 }
@@ -109,13 +108,6 @@ function Register() {
                 <label for="d">MobileNo:</label>
                 <input id = "d" type="text" name="mobileNo" value={customer.mobileNo} pattern="[0-9]{10}" onChange={handleAccountChange} required></input>
                 </p>
-                <div>
-                    {mobileRef.invalid && (mobileRef.touched || mobileRef.dirty) && (
-                <div>
-                    {mobileRef.errors?.['required'] && <p className="text-danger">Mobile Number is required, cant be blank.</p>}
-                    {mobileRef.errors?.['pattern'] && <p className="text-danger">Mobile Number should be of length 10.</p>}
-                </div>)}
-                </div>
                 <br></br>
                 <p>
                     <label for="e">Door no.:</label>
