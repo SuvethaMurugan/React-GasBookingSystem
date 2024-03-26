@@ -23,7 +23,7 @@ function CustomerLogin() {
             (resp)=>{
               localStorage.setItem("customer",JSON.stringify(resp));
                 console.log(resp);
-                navigate("/cylinder/available")
+                navigate("/customer/Home")
             }
         )
         .catch(
