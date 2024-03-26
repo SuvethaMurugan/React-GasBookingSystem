@@ -42,6 +42,7 @@ function Register() {
             .then(
                 (resp) => {
                     console.log(resp.data);
+                    localStorage.setItem("customer",JSON.stringify(resp));
                     navigate('/login');
                     
                 }
@@ -51,8 +52,6 @@ function Register() {
                     console.log(err.response.data);
                 }
             )
-
-
     }
     return (
         <>
