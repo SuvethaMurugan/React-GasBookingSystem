@@ -14,15 +14,17 @@ function Bank() {
         setBank({ ...bank, [e.target.name]: e.target.value });
 
     }
-    // const navigate=useNavigate();
+     const navigate=useNavigate();
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(bank);
+
         BankService.LinkBankAccount(bank)
             .then(
                 (resp) => {
                     console.log(resp.data);  
                     localStorage.setItem("customer",JSON.stringify(resp)); 
+                    navigate("/booked/cylinders");
                 }
             )
             .catch(

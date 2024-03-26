@@ -4,7 +4,7 @@ class AccountService{
         return axiosInstance.post('http://localhost:8090/register',account);
     }   
     loginCustomerAccount(customer){
-        return axiosInstance.post('http://localhost:8090/login',customer)
+        return axiosInstance.post('http://localhost:8090/login/userName',customer)
     }
 }
 
