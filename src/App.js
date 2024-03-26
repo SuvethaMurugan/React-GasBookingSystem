@@ -21,6 +21,7 @@ function App() {
       <Route path='/login' element={<CustomerLogin />}></Route>
     </Routes>
   </BrowserRouter>
+  <Footer/>
   </>
   );
 }

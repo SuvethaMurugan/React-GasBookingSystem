@@ -6,13 +6,12 @@ p     { display: table-row;  }
 label { display: table-cell; }
 input { display: table-cell; }
 .container {
-  max-width: 400px;
+  max-width: 50%;
   margin: 0 auto;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
-
 .form-control {
   width: 100%;
   padding: 8px;
@@ -41,3 +40,6 @@ input { display: table-cell; }
 button:hover {
   background-color: #d9a58f;
 }
+:export  {
+  container: 'container'
+};

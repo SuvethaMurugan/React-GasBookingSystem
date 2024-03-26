@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import Footer from './Component/Footer';
 
 import 'bootstrap/dist/css/bootstrap.css';
 
@@ -11,6 +12,7 @@ root.render(
   <React.StrictMode>
    
       <App />
+      <Footer />
   </React.StrictMode>
 );
 
