@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <div className='warpper'>
     <footer>
-      <p>© {new Date().getFullYear()} Company Name</p>
+      <p style={{ paddingLeft:'35%'}}>© {new Date().getFullYear()} Company Name</p>
     </footer>
     </div>
   );

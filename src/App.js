@@ -11,6 +11,10 @@ import AddCylinder from './Component/AddCylinder';
 import AvailableCylinder from './Component/AvailableCylinder';
 import BookedCylinder from './Component/BookedCylinder';
 import CylinderFunctionality from './Component/CylinderFunctionality';
+import CustomerHome from './Component/CustomerHome';
+import Logout from './Component/Logout';
+import Transaction from './Component/Transaction';
+import ViewProfile from './Component/ViewProfile';
 function App() {
   return (
     <>
@@ -27,6 +31,10 @@ function App() {
       <Route path='/AvailableCylinder' element={<AvailableCylinder/>}></Route>
       <Route path='/BookedCylinder' element={<BookedCylinder/>}></Route>
       <Route path='/CylinderFunctionality' element={<CylinderFunctionality/>}></Route>
+      <Route path='/customer/Home' element={<CustomerHome />}></Route>
+      <Route path='/logout' element={<Logout />}></Route>
+      <Route path='/transaction' element={<Transaction />}></Route>
+      <Route path='/profile' element={<ViewProfile />}></Route>
     </Routes>
   </BrowserRouter>
   </>
