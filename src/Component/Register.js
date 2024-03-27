@@ -33,15 +33,53 @@ function Register() {
       pinCode: ''
     });
     const handleAccountChange = (e) => {
-        setCustomer({ ...customer, [e.target.name]: e.target.value });
-        setValidationErrors({ ...validationErrors, [e.target.name]: e.target.value ? '' : 'This field is required' })
+      const { name, value } = e.target;
+      let errorMessage = '';
+      if (name === 'userName') {
+        if (value.length < 3) {
+          errorMessage = 'Username must be at least 3 characters long';
+        }
+      }else if (name === 'email') {
+        if (!/\S+@\S+\.\S+/.test(value)) {
+          errorMessage = 'Invalid email format';
+        }
+      } else if (name === 'password') {
+        if (value.length < 6) {
+          errorMessage = '*Password should contain at least one digit(0-9), between 8 to 15 characters, contain at least one lowercase letter(a-z), at least one uppercase letter(A-Z), contain at least one special character';
+        }
+      } else{
+        if (!/^\d{10}$/.test(value)) {
+          errorMessage = 'Mobile number must be 10 digits long';
+        }
+      } 
+        setCustomer({ ...customer, [name]: value });
+        setValidationErrors({ ...validationErrors, [name]: errorMessage})
     }
     
     const handleAddressChange = (e) => {
+        const { name, value } = e.target;
+        let errorMessage = '';
+        if (name === 'doorNo') {
+          if (value.length === 0) {
+            errorMessage = 'Door number is required';
+          }
+        } else if (name === 'streetName') {
+          if (value.length === 0) {
+            errorMessage = 'Street name is required';
+          }
+        } else if (name === 'City') {
+          if (value.length === 0) {
+            errorMessage = 'City is required';
+          }
+        } else if (name === 'pinCode') {
+          if (!/^\d{6}$/.test(value)) {
+            errorMessage = 'Pin code must be 6 digits long';
+          }
+        }
         setCustomer({ ...customer,address:{
-            ...customer.address,[e.target.name]: e.target.value
-        }  });
-        setValidationErrors({ ...validationErrors, [e.target.name]: e.target.value ? '' : 'This field is required' });
+          ...customer.address,[name]: value
+      }  });
+        setValidationErrors({ ...validationErrors, [name]: errorMessage });
     }
     const navigate=useNavigate();
     const handleSubmit = (e) => {
