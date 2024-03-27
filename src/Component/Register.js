@@ -108,9 +108,15 @@ function Register() {
             <Card className="px-20">
               <Card.Body>
                 <div className="mb-3 mt-md-4">
-                  <h2 className="fw-bold mb-2 text-center text-uppercase ">
+                  <h3 className="fw-bold mb-2 text-center text-uppercase ">
+                    Welcome to EGas Booking Applicaion
+                  </h3>
+                  <h5 className="fw-bold mb-2 text-center text-uppercase ">
                     Register
-                  </h2>
+                  </h5>
+                  <h4 className="fw-bold mb-2 text-center text-uppercase ">
+                    Welcome to EGas Booking Applicaion
+                  </h4>
                   <div className="mb-8">
                     <Form onSubmit={handleSubmit}>
                       <Form.Group className="mb-3" controlId="Name">
